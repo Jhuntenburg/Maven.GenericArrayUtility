@@ -38,7 +38,34 @@ public class ArrayUtility<T> {
 
 
     public T getMostCommonFromMerge(T[] arrayToMerge) {
-        return null;
+        T[] newArray = (T[]) Array.newInstance(arrayToMerge[0].getClass(), array.length + arrayToMerge.length);
+
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[i];
+
+        }
+        for (int i = array.length; i < array.length + arrayToMerge.length; i++) {
+            newArray[i] = arrayToMerge[i - array.length];
+
+        }
+        int maxcount = 0;
+         T element_having_max_freq= null;
+        for (int i = 0; i < newArray.length; i++) {
+            int count = 0;
+            for (int j = 0; j < newArray.length; j++) {
+                if (newArray[i] == newArray[j]) {
+                    count++;
+                }
+            }
+
+            if (count > maxcount) {
+                maxcount = count;
+                element_having_max_freq = newArray[i];
+            }
+        }
+
+        return element_having_max_freq;
+
     }
 
 
