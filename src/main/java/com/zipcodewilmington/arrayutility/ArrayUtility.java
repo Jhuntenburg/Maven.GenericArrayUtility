@@ -49,7 +49,7 @@ public class ArrayUtility<T> {
 
         }
         int maxcount = 0;
-         T element_having_max_freq= null;
+        T element_having_max_freq = null;
         for (int i = 0; i < newArray.length; i++) {
             int count = 0;
             for (int j = 0; j < newArray.length; j++) {
